@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TOtrackerDO</string>
+    <string name="edit_message">query…</string>
+    <string name="home">Dashboard</string>
+    <string name="issues">Issues</string>
+    <string name="reports">Reports</string>
+    <string-array name="query_scope">
+        <item>Everything</item>
+        <item>Project</item>
+    </string-array>
+</resources>
