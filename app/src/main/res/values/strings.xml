@@ -8,4 +8,5 @@
         <item>Everything</item>
         <item>Project</item>
     </string-array>
+    <string name="issue_count">Issue Count:</string>
 </resources>

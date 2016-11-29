@@ -14,7 +14,7 @@
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/query_scope"/>
+            android:entries="@array/query_scope" />
 
         <EditText
             android:id="@+id/edit_message"
@@ -36,23 +36,23 @@
 
         <Button
             android:id="@+id/dashboard"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/home" />
 
         <Button
             android:id="@+id/issues"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/issues"
-            android:onClick="viewIssues"/>
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="viewIssues"
+            android:text="@string/issues" />
 
         <Button
             android:layout_width="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
             android:text="@string/reports" />
     </LinearLayout>
 
@@ -60,5 +60,21 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/issue_statistics_fragment"
+            android:name="com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.IssueStatisticsFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/issue_statistics_fragment" />
+
+    </LinearLayout>
 
 </LinearLayout>
