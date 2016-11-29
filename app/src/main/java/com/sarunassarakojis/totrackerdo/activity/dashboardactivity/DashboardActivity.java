@@ -1,11 +1,12 @@
-package com.sarunassarakojis.totrackerdo;
+package com.sarunassarakojis.totrackerdo.activity.dashboardactivity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.GridView;
+
+import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivity;
 
 /**
  * Requirements for the second laboratory:
@@ -16,9 +17,8 @@ import android.widget.GridView;
  * @author Sarunas Sarakojis
  */
 // TODO finish GUI
-// TODO implement users
-// TODO retrieve data from database
-public class MainActivity extends AppCompatActivity {
+// TODO retrieve data from sqlite
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
