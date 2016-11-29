@@ -28,6 +28,6 @@ public class IssueStatisticsFragment extends Fragment {
 
         TextView issueCount = (TextView) getActivity().findViewById(R.id.issue_count);
 
-        // TODO retrieve issue count from the database and set it here
+        // TODO retrieve issue count from the database and set it here.
     }
 }
