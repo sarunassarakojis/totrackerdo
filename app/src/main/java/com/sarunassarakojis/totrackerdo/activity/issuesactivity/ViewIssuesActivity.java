@@ -15,22 +15,28 @@ import java.util.List;
 
 public class ViewIssuesActivity extends AppCompatActivity {
 
+    private List<Issue> allIssues;
+    private ListView issueListView;
+    private CustomAdapter customAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_display_issues);
 
+        issueListView = (ListView) findViewById(R.id.issue_list_view);
+        allIssues = new ArrayList<>();
+        customAdapter = new CustomAdapter(this, allIssues);
+    }
 
-        ListView listView = (ListView) findViewById(R.id.listview);
-        List<Issue> issueList = new ArrayList<>();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-        issueList.add(IssueBuilder.createIssue(new FlawIssueTypeProvider("Flaw issue", "flaw description")));
-        issueList.add(IssueBuilder.createIssue(new TODOIssueTypeProvider("TODO issue", "todo description")));
-
-        CustomAdapter adapter = new CustomAdapter(this, issueList);
-
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-        listView.setAlpha(1);
+        allIssues.add(IssueBuilder.createIssue(new TODOIssueTypeProvider("TODO issue", "todo description")));
+        allIssues.add(IssueBuilder.createIssue(new FlawIssueTypeProvider("Flaw issue", "flaw description")));
+        issueListView.setAdapter(customAdapter);
+        customAdapter.notifyDataSetChanged();
+        issueListView.setAlpha(1);
     }
 }
