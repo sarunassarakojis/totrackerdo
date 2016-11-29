@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.IssueStatisticsFragment;
 import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivity;
 
 /**
  * Requirements for the second laboratory:
- *
+ * <p>
  * 1) Fully completed GUI
  * 2) Required functionality implemented
  *
@@ -24,6 +25,14 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (findViewById(R.id.fragment_container) != null) {
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_container, new IssueStatisticsFragment())
+                    .commit();
+        }
     }
 
     public void viewIssues(View view) {

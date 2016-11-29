@@ -61,20 +61,10 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
-
-        <fragment
-            android:id="@+id/issue_statistics_fragment"
-            android:name="com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.IssueStatisticsFragment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            tools:layout="@layout/issue_statistics_fragment" />
-
-    </LinearLayout>
+        android:layout_height="match_parent">
+    </FrameLayout>
 
 </LinearLayout>
