@@ -6,26 +6,18 @@ import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 /**
  * Created by Sarunas on 11/29/2016
  */
-public class FlawIssueTypeProvider implements IssueProvider {
+public class FlawIssueTypeProvider extends IssueProvider {
 
-    private String flawIssueSummary;
-    private String flawIssueDescription;
-
-    public FlawIssueTypeProvider(String flawIssueSummary, String flawIssueDescription) {
-        this.flawIssueSummary = flawIssueSummary;
-        this.flawIssueDescription = flawIssueDescription;
+    public FlawIssueTypeProvider() {
     }
 
     @Override
-    public Issue createIssue() {
-        return new FlawIssue(flawIssueSummary, flawIssueDescription);
+    public Issue createIssue(String issueSummary) {
+        return new FlawIssue(issueSummary);
     }
 
-    public void setFlawIssueSummary(String flawIssueSummary) {
-        this.flawIssueSummary = flawIssueSummary;
-    }
-
-    public void setFlawIssueDescription(String flawIssueDescription) {
-        this.flawIssueDescription = flawIssueDescription;
+    @Override
+    public Issue createIssue(String issueSummary, String issueDescription) {
+        return new FlawIssue(issueSummary, issueDescription);
     }
 }

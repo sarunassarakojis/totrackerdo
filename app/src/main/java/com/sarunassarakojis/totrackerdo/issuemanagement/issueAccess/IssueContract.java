@@ -1,4 +1,4 @@
-package com.sarunassarakojis.totrackerdo.issuemanagement.sqlaccess;
+package com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess;
 
 import android.provider.BaseColumns;
 

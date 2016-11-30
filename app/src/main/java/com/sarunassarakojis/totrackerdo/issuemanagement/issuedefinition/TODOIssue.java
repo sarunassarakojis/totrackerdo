@@ -13,6 +13,10 @@ public class TODOIssue implements Issue {
         this.todoIssueDescription = todoIssueDescription;
     }
 
+    public TODOIssue(String todoIssueSummary) {
+        this(todoIssueSummary, "");
+    }
+
     @Override
     public String getSummary() {
         return todoIssueSummary;
@@ -21,5 +25,15 @@ public class TODOIssue implements Issue {
     @Override
     public String getDescription() {
         return todoIssueDescription;
+    }
+
+    @Override
+    public void setSummary(String newSummary) {
+        this.todoIssueSummary = newSummary;
+    }
+
+    @Override
+    public void setDescription(String newDescription) {
+        this.todoIssueDescription = newDescription;
     }
 }

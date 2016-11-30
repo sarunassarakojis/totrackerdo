@@ -3,18 +3,18 @@ package com.sarunassarakojis.totrackerdo.issuemanagement;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.TODOIssue;
 
-public class TODOIssueTypeProvider implements IssueProvider {
+public class TODOIssueTypeProvider extends IssueProvider {
 
-    private String todoIssueSummary;
-    private String todoIssueDescription;
-
-    public TODOIssueTypeProvider(String todoIssueSummary, String todoIssueDescription) {
-        this.todoIssueSummary = todoIssueSummary;
-        this.todoIssueDescription = todoIssueDescription;
+    public TODOIssueTypeProvider() {
     }
 
     @Override
-    public Issue createIssue() {
-        return new TODOIssue(todoIssueSummary, todoIssueDescription);
+    public Issue createIssue(String issueSummary) {
+        return new TODOIssue(issueSummary);
+    }
+
+    @Override
+    public Issue createIssue(String issueSummary, String issueDescription) {
+        return new TODOIssue(issueSummary, issueDescription);
     }
 }

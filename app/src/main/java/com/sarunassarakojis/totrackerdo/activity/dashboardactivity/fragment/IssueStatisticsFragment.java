@@ -1,5 +1,6 @@
 package com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,11 +10,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
 
 /**
  * Created by Sarunas on 11/29/2016
  */
 public class IssueStatisticsFragment extends Fragment {
+
+    private SQLiteDatabase database;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        database = IssuesTableUtilities.getReadableDatabase(getContext());
+    }
 
     @Nullable
     @Override
@@ -27,7 +38,8 @@ public class IssueStatisticsFragment extends Fragment {
         super.onStart();
 
         TextView issueCount = (TextView) getActivity().findViewById(R.id.issue_count);
+        Integer countOfIssues = IssuesTableUtilities.getTotalCountOfIssues(database);
 
-        // TODO retrieve issue count from the database and set it here.
+        issueCount.setText(countOfIssues.toString());
     }
 }
