@@ -6,7 +6,7 @@
     android:id="@+id/issue_list_layout" >
 
     <TextView
-        android:id="@+id/secondLine"
+        android:id="@+id/issue_description"
         android:layout_width="fill_parent"
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
@@ -17,7 +17,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/firstLine"
+        android:id="@+id/issue_summary"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"

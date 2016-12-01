@@ -3,6 +3,7 @@ package com.sarunassarakojis.totrackerdo.activity.dashboardactivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.sarunassarakojis.totrackerdo.R;
@@ -33,6 +34,8 @@ public class DashboardActivity extends AppCompatActivity {
                     .add(R.id.fragment_container, new IssueStatisticsFragment())
                     .commit();
         }
+
+        setSupportActionBar((Toolbar) findViewById(R.id.dashboard_activity_toolbar));
     }
 
     public void viewIssues(View view) {

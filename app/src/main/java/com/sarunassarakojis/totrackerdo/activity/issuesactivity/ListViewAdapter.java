@@ -13,12 +13,12 @@ import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter<Issue> {
+public class ListViewAdapter extends ArrayAdapter<Issue> {
 
     private List<Issue> list;
     private Context context;
 
-    public CustomAdapter(Context context, List<Issue> objects) {
+    public ListViewAdapter(Context context, List<Issue> objects) {
         super(context, R.layout.issue_layout, objects);
 
         list = objects;
@@ -31,11 +31,11 @@ public class CustomAdapter extends ArrayAdapter<Issue> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.issue_layout, parent, false);
-        TextView second = (TextView) rowView.findViewById(R.id.secondLine);
-        TextView first = (TextView) rowView.findViewById(R.id.firstLine);
+        TextView first = (TextView) rowView.findViewById(R.id.issue_summary);
+        TextView second = (TextView) rowView.findViewById(R.id.issue_description);
 
-        second.setText(list.get(position).getDescription());
         first.setText(list.get(position).getSummary());
+        second.setText(list.get(position).getDescription());
 
         return rowView;
     }
