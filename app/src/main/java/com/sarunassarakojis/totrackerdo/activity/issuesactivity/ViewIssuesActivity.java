@@ -22,6 +22,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_issues);
+        setSupportActionBar((Toolbar) findViewById(R.id.dashboard_activity_toolbar));
 
         SQLiteDatabase database = IssuesTableUtilities.getReadableDatabase(getApplicationContext());
         issueListView = (ListView) findViewById(R.id.issue_list_view);
