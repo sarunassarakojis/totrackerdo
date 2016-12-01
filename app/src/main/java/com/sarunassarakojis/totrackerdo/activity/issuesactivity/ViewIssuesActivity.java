@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.activity.AddNewIssueInputPrompter;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 
@@ -45,8 +46,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_new_issue_toolbar_button :
-                System.out.println("Add new issue");
-                return true;
+                return AddNewIssueInputPrompter.createNewIssueFromUserInputData(this) != null;
             default:
                 return super.onOptionsItemSelected(item);
         }
