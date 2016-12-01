@@ -9,4 +9,5 @@
         <item>Project</item>
     </string-array>
     <string name="issue_count">Issue Count:</string>
+    <string name="add_new_issue_toolbar_action">Add New Issue</string>
 </resources>

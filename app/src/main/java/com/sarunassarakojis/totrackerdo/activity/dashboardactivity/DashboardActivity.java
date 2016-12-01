@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 
 import com.sarunassarakojis.totrackerdo.R;
@@ -36,6 +37,13 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         setSupportActionBar((Toolbar) findViewById(R.id.dashboard_activity_toolbar));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+
+        return true;
     }
 
     public void viewIssues(View view) {

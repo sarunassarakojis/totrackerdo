@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.widget.ListView;
 
 import com.sarunassarakojis.totrackerdo.R;
@@ -28,6 +29,13 @@ public class ViewIssuesActivity extends AppCompatActivity {
         issueListView = (ListView) findViewById(R.id.issue_list_view);
         allIssues = IssuesTableUtilities.readAllIssues(database);
         listViewAdapter = new ListViewAdapter(this, allIssues);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+
+        return true;
     }
 
     @Override
