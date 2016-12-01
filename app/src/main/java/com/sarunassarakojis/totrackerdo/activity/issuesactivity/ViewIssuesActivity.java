@@ -2,9 +2,11 @@ package com.sarunassarakojis.totrackerdo.activity.issuesactivity;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.sarunassarakojis.totrackerdo.R;
@@ -25,6 +27,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_issues);
         setSupportActionBar((Toolbar) findViewById(R.id.dashboard_activity_toolbar));
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         SQLiteDatabase database = IssuesTableUtilities.getReadableDatabase(getApplicationContext());
         issueListView = (ListView) findViewById(R.id.issue_list_view);
         allIssues = IssuesTableUtilities.readAllIssues(database);
@@ -36,6 +39,17 @@ public class ViewIssuesActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_new_issue_toolbar_button :
+                System.out.println("Add new issue");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
