@@ -18,7 +18,6 @@ import java.util.List;
 
 public class ViewIssuesActivity extends AppCompatActivity {
 
-    private List<Issue> allIssues;
     private ListView issueListView;
     private ListViewAdapter listViewAdapter;
 
@@ -31,8 +30,9 @@ public class ViewIssuesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         SQLiteDatabase database = IssuesTableUtilities.getReadableDatabase(getApplicationContext());
         issueListView = (ListView) findViewById(R.id.issue_list_view);
-        allIssues = IssuesTableUtilities.readAllIssues(database);
-        listViewAdapter = new ListViewAdapter(this, allIssues);
+        listViewAdapter = new ListViewAdapter(this, IssuesTableUtilities.readAllIssues(database));
+
+        database.close();
     }
 
     @Override
@@ -45,8 +45,9 @@ public class ViewIssuesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.add_new_issue_toolbar_button :
-                return AddNewIssueInputPrompter.createNewIssueFromUserInputData(this) != null;
+            case R.id.add_new_issue_toolbar_button:
+                AddNewIssueInputPrompter.createNewIssueFromUserInputData(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

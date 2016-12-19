@@ -18,11 +18,16 @@ public class IssuesDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CommonIssueQuerries.SQL_CREATE_ISSUES_TABLE);
+        db.execSQL(CommonIssueQueries.SQL_CREATE_ISSUES_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(CommonIssueQuerries.SQL_DELETE_ISSUES_TABLE);
+        db.execSQL(CommonIssueQueries.SQL_DELETE_ISSUES_TABLE);
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
     }
 }

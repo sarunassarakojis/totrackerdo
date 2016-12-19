@@ -37,13 +37,13 @@ public class IssuesTableUtilities {
         return databaseHelper.getReadableDatabase();
     }
 
-    public static void insertNewIssue(Issue issueToInsert, SQLiteDatabase writableDatabase) {
+    public static long insertNewIssue(Issue issueToInsert, SQLiteDatabase writableDatabase) {
         ContentValues newIssueValues = new ContentValues();
 
         newIssueValues.put(IssueContract.IssueEntry.ISSUE_SUMMARY, issueToInsert.getSummary());
         newIssueValues.put(IssueContract.IssueEntry.ISSUE_DESCRIPTION, issueToInsert.getDescription());
 
-        long id = writableDatabase.insert(IssueContract.IssueEntry.ISSUES_TABLE_NAME, null, newIssueValues);
+        return writableDatabase.insert(IssueContract.IssueEntry.ISSUES_TABLE_NAME, null, newIssueValues);
     }
 
     public static int getTotalCountOfIssues(SQLiteDatabase readableDatabase) {
@@ -60,6 +60,7 @@ public class IssuesTableUtilities {
     }
 
     private static List<Issue> mapCursorToListOfIssues(Cursor resultCursor) {
+        int idColumn = resultCursor.getColumnIndex(IssueContract.IssueEntry._ID);
         int summaryIndex = resultCursor.getColumnIndex(IssueContract.IssueEntry.ISSUE_SUMMARY);
         int descriptionIndex = resultCursor.getColumnIndex(IssueContract.IssueEntry.ISSUE_DESCRIPTION);
         IssueProvider issueProvider = IssueProvider.getConcreteIssueProvider(IssueType.TODO);
@@ -68,6 +69,7 @@ public class IssuesTableUtilities {
         if (resultCursor.moveToFirst()) {
             do {
                 allIssues.add(issueProvider.createIssue(
+                        resultCursor.getInt(idColumn),
                         resultCursor.getString(summaryIndex),
                         resultCursor.getString(descriptionIndex)));
             } while (resultCursor.moveToNext());

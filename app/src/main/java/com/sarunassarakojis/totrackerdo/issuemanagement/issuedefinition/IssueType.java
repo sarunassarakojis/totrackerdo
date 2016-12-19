@@ -5,5 +5,4 @@ package com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition;
  */
 public enum IssueType {
     TODO,
-    FLAW
 }

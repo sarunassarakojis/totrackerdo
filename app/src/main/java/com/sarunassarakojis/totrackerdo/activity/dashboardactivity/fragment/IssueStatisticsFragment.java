@@ -42,4 +42,13 @@ public class IssueStatisticsFragment extends Fragment {
 
         issueCount.setText(countOfIssues.toString());
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (database != null) {
+            database.close();
+        }
+    }
 }

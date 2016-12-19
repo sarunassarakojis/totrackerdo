@@ -6,6 +6,7 @@ package com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition;
  */
 public interface Issue {
 
+    int getUniqueIdentifier();
     String getSummary();
     String getDescription();
     void setSummary(String newSummary);

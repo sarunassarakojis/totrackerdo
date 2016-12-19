@@ -9,12 +9,12 @@ public class TODOIssueTypeProvider extends IssueProvider {
     }
 
     @Override
-    public Issue createIssue(String issueSummary) {
-        return new TODOIssue(issueSummary);
+    public Issue createIssue(int uniqueIdentifier, String issueSummary) {
+        return new TODOIssue(uniqueIdentifier, issueSummary);
     }
 
     @Override
-    public Issue createIssue(String issueSummary, String issueDescription) {
-        return new TODOIssue(issueSummary, issueDescription);
+    public Issue createIssue(int uniqueIdentifier, String issueSummary, String issueDescription) {
+        return new TODOIssue(uniqueIdentifier, issueSummary, issueDescription);
     }
 }

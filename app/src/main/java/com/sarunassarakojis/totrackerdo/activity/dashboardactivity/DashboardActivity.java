@@ -52,8 +52,8 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_new_issue_toolbar_button :
-
-                return AddNewIssueInputPrompter.createNewIssueFromUserInputData(this) != null;
+                AddNewIssueInputPrompter.createNewIssueFromUserInputData(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -3,22 +3,18 @@ package com.sarunassarakojis.totrackerdo.activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
 import com.sarunassarakojis.totrackerdo.R;
-import com.sarunassarakojis.totrackerdo.issuemanagement.IssueProvider;
-import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
-import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.IssueType;
 
 /**
  * Created by Sarunas on 12/1/2016
  */
 public class AddNewIssueInputPrompter {
 
-    public static Issue createNewIssueFromUserInputData(final Context context) {
+    public static void createNewIssueFromUserInputData(final Context context) {
         final String[] issueSummary = {""};
         final String[] issueDescription = {""};
         AlertDialog.Builder inputDialogBuilder = new AlertDialog.Builder(context);
@@ -50,9 +46,5 @@ public class AddNewIssueInputPrompter {
             }
         });
         inputDialogBuilder.show();
-
-        return !issueSummary[0].isEmpty() ?
-                IssueProvider.getConcreteIssueProvider(IssueType.TODO)
-                        .createIssue(issueSummary[0], issueDescription[0]) : null;
     }
 }

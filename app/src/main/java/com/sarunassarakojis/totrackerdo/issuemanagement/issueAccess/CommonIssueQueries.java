@@ -3,7 +3,7 @@ package com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess;
 /**
  * Created by Sarunas on 11/30/2016
  */
-public class CommonIssueQuerries {
+public class CommonIssueQueries {
     private static String TEXT_TYPE = " TEXT";
     public static String SQL_CREATE_ISSUES_TABLE =
             "CREATE TABLE " + IssueContract.IssueEntry.ISSUES_TABLE_NAME + " (" +
