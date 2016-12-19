@@ -3,11 +3,14 @@ package com.sarunassarakojis.totrackerdo.activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
 import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
+import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.TODOIssue;
 
 /**
  * Created by Sarunas on 12/1/2016
@@ -22,7 +25,7 @@ public class AddNewIssueInputPrompter {
         final EditText summaryInput = (EditText) inflatedView.findViewById(R.id.issue_summary_input);
         final EditText descriptionInput = (EditText) inflatedView.findViewById(R.id.issue_description_input);
 
-        inputDialogBuilder.setTitle("Title");
+        inputDialogBuilder.setTitle("Add new issue");
         inputDialogBuilder.setView(inflatedView);
         inputDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -31,6 +34,7 @@ public class AddNewIssueInputPrompter {
                 if (!issueSummary[0].isEmpty()) {
                     issueDescription[0] = descriptionInput.getText().toString();
                     dialog.dismiss();
+                    addNewIssueToDatabase(context, issueSummary[0], issueDescription[0]);
                 } else {
                     new AlertDialog.Builder(context)
                             .setTitle("Wrong input")
@@ -46,5 +50,12 @@ public class AddNewIssueInputPrompter {
             }
         });
         inputDialogBuilder.show();
+    }
+
+    private static void addNewIssueToDatabase(final Context context, String issueSummary, String issueDescription) {
+        SQLiteDatabase database = IssuesTableUtilities.getWritableDatabase(context);
+
+        IssuesTableUtilities.insertNewIssue(new TODOIssue(issueSummary, issueDescription), database);
+        database.close();
     }
 }

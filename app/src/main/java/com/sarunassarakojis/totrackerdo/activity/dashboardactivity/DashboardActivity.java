@@ -14,15 +14,8 @@ import com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.Issu
 import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivity;
 
 /**
- * Requirements for the second laboratory:
- * <p>
- * 1) Fully completed GUI
- * 2) Required functionality implemented
- *
  * @author Sarunas Sarakojis
  */
-// TODO finish GUI
-// TODO retrieve data from sqlite
 public class DashboardActivity extends AppCompatActivity {
 
     @Override
