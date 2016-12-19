@@ -19,6 +19,5 @@ public abstract class IssueProvider {
         }
     }
 
-    public abstract Issue createIssue(int uniqueIdentifier, String issueSummary);
     public abstract Issue createIssue(int uniqueIdentifier, String issueSummary, String issueDescription);
 }

@@ -15,8 +15,8 @@ public class TODOIssue implements Issue {
         this.todoIssueDescription = todoIssueDescription;
     }
 
-    public TODOIssue(int uniqueIdentifier, String todoIssueSummary) {
-        this(uniqueIdentifier, todoIssueSummary, "");
+    public TODOIssue(String todoIssueSummary, String todoIssueDescription) {
+        this(Issue.IDENTIFIER_NOT_SET, todoIssueSummary, todoIssueDescription);
     }
 
     @Override
