@@ -54,6 +54,13 @@ public class IssuesTableUtilities {
         return mapCursorToListOfIssues(getCursorPointingToAllIssues(readableDatabase));
     }
 
+    public static int deleteSpecifiedIssue(SQLiteDatabase writableDatabase, Issue issueToRemove) {
+        String whereClause = IssueContract.IssueEntry._ID + "=?";
+        String[] arguments = {String.valueOf(issueToRemove.getUniqueIdentifier())};
+
+        return writableDatabase.delete(IssueContract.IssueEntry.ISSUES_TABLE_NAME, whereClause, arguments);
+    }
+
     private static Cursor getCursorPointingToAllIssues(SQLiteDatabase readableDatabase) {
         return readableDatabase.query(IssueContract.IssueEntry.ISSUES_TABLE_NAME,
                 ISSUE_COLUMNS, null, null, null, null, null);

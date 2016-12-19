@@ -43,4 +43,9 @@ public class TODOIssue implements Issue {
     public void setDescription(String newDescription) {
         this.todoIssueDescription = newDescription;
     }
+
+    @Override
+    public String toString() {
+        return "Identifier: " + uniqueIdentifier + ", summary: " + todoIssueSummary;
+    }
 }

@@ -1,8 +1,8 @@
 package com.sarunassarakojis.totrackerdo.activity.dashboardactivity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,9 +44,11 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.add_new_issue_toolbar_button :
+            case R.id.add_new_issue_toolbar_button:
                 AddNewIssueInputPrompter.createNewIssueFromUserInputData(this);
                 return true;
+            case R.id.menu_refresh:
+
             default:
                 return super.onOptionsItemSelected(item);
         }

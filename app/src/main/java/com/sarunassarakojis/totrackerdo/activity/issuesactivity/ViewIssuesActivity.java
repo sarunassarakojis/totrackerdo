@@ -2,7 +2,6 @@ package com.sarunassarakojis.totrackerdo.activity.issuesactivity;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,7 +18,7 @@ import java.util.List;
 public class ViewIssuesActivity extends AppCompatActivity {
 
     private ListView issueListView;
-    private ListViewAdapter listViewAdapter;
+    private ListViewAdapter issueListViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +27,8 @@ public class ViewIssuesActivity extends AppCompatActivity {
         setSupportActionBar((Toolbar) findViewById(R.id.dashboard_activity_toolbar));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        SQLiteDatabase database = IssuesTableUtilities.getReadableDatabase(getApplicationContext());
         issueListView = (ListView) findViewById(R.id.issue_list_view);
-        listViewAdapter = new ListViewAdapter(this, IssuesTableUtilities.readAllIssues(database));
-
-        database.close();
+        issueListViewAdapter = new ListViewAdapter(this, obtainIssuesFromTheDataSource());
     }
 
     @Override
@@ -48,6 +44,9 @@ public class ViewIssuesActivity extends AppCompatActivity {
             case R.id.add_new_issue_toolbar_button:
                 AddNewIssueInputPrompter.createNewIssueFromUserInputData(this);
                 return true;
+            case R.id.menu_refresh:
+                issueListViewAdapter.setContainedIssues(obtainIssuesFromTheDataSource());
+                issueListViewAdapter.notifyDataSetChanged();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -56,8 +55,17 @@ public class ViewIssuesActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        issueListView.setAdapter(listViewAdapter);
-        listViewAdapter.notifyDataSetChanged();
+        issueListView.setAdapter(issueListViewAdapter);
+        issueListViewAdapter.notifyDataSetChanged();
         issueListView.setAlpha(1);
+    }
+
+    private List<Issue> obtainIssuesFromTheDataSource() {
+        SQLiteDatabase database = IssuesTableUtilities.getReadableDatabase(this);
+        List<Issue> issues = IssuesTableUtilities.readAllIssues(database);
+
+        database.close();
+
+        return issues;
     }
 }

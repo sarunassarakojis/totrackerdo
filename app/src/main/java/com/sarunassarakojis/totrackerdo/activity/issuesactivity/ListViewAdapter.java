@@ -15,27 +15,27 @@ import java.util.List;
 
 public class ListViewAdapter extends ArrayAdapter<Issue> {
 
-    private List<Issue> list;
+    private List<Issue> containedIssues;
     private Context context;
 
     public ListViewAdapter(Context context, List<Issue> objects) {
         super(context, R.layout.issue_layout, objects);
 
-        list = objects;
+        containedIssues = objects;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.issue_layout, parent, false);
-        TextView first = (TextView) rowView.findViewById(R.id.issue_summary);
-        TextView second = (TextView) rowView.findViewById(R.id.issue_description);
+        TextView summaryView = (TextView) rowView.findViewById(R.id.issue_summary);
+        TextView descriptionView = (TextView) rowView.findViewById(R.id.issue_description);
 
-        first.setText(list.get(position).getSummary());
-        second.setText(list.get(position).getDescription());
+        summaryView.setText(containedIssues.get(position).getSummary());
+        descriptionView.setText(containedIssues.get(position).getDescription());
 
         return rowView;
     }
@@ -43,5 +43,9 @@ public class ListViewAdapter extends ArrayAdapter<Issue> {
     @Override
     public boolean hasStableIds() {
         return true;
+    }
+
+    public void setContainedIssues(List<Issue> containedIssues) {
+        this.containedIssues = containedIssues;
     }
 }

@@ -12,4 +12,5 @@
     <string name="add_new_issue_toolbar_action">Add New Issue</string>
     <string name="issue_summary_input">Enter a summary here</string>
     <string name="issue_description_input">Enter a description for the issue (optional)</string>
+    <string name="refresh_action">Refresh</string>
 </resources>
