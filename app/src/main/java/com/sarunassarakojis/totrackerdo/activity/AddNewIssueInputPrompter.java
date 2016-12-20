@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.sarunassarakojis.totrackerdo.R;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
@@ -56,6 +57,11 @@ public class AddNewIssueInputPrompter {
         SQLiteDatabase database = IssuesTableUtilities.getWritableDatabase(context);
 
         IssuesTableUtilities.insertNewIssue(new TODOIssue(issueSummary, issueDescription), database);
+        displayIssueAddedToast(context);
         database.close();
+    }
+
+    private static void displayIssueAddedToast(final Context context) {
+        Toast.makeText(context, R.string.issue_added_toast, Toast.LENGTH_SHORT).show();
     }
 }

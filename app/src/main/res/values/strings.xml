@@ -13,4 +13,5 @@
     <string name="issue_summary_input">Enter a summary here</string>
     <string name="issue_description_input">Enter a description for the issue (optional)</string>
     <string name="refresh_action">Refresh</string>
+    <string name="issue_added_toast">Issue was added</string>
 </resources>
