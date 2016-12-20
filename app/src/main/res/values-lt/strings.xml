@@ -14,4 +14,9 @@
     <string name="remove_issue_context_menu_title">Pašalinti užrašą</string>
     <string name="thanks_dialog_message">Dėkoju dėstytojams kurie padėjo sukurti šią programėlę</string>
     <string name="thanks_menu_item_title">Ačiū</string>
+    <string name="cancel_label">Atšaukti</string>
+    <string name="confirmation_message">Ar jūs esate tikras?</string>
+    <string name="ok_label">Gerai</string>
+    <string name="summary_should_not_be_empty_message">Pavadinimas negali būti tuščias</string>
+    <string name="wrong_input">Klaidingas įvedimas</string>
 </resources>

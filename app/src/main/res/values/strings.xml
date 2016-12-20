@@ -11,11 +11,16 @@
     <string name="issue_summary_input">Enter a summary here</string>
     <string name="issue_description_input">Enter a description for the issue (optional)</string>
     <string name="refresh_action">Refresh</string>
+    <string name="ok_label">OK</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="wrong_input">Wrong input</string>
+    <string name="summary_should_not_be_empty_message">Summary should not be empty!</string>
     <string name="issue_added_toast">Issue was added</string>
     <string name="issue_modified_toast">Issue was modified</string>
     <string name="issue_removed_toast">Issue was removed</string>
     <string name="modify_issue_context_menu_title">Modify issue</string>
     <string name="remove_issue_context_menu_title">Remove issue</string>
     <string name="thanks_menu_item_title">Thanks</string>
+    <string name="confirmation_message">Are you sure?</string>
     <string name="thanks_dialog_message">Thanks for the lecturers who had helped in the development of this app</string>
 </resources>

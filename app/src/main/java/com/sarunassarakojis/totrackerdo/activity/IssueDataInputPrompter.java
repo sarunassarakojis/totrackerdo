@@ -28,9 +28,9 @@ public class IssueDataInputPrompter {
         final EditText summaryInput = (EditText) inflatedView.findViewById(R.id.issue_summary_input);
         final EditText descriptionInput = (EditText) inflatedView.findViewById(R.id.issue_description_input);
 
-        inputDialogBuilder.setTitle("Add new issue");
+        inputDialogBuilder.setTitle(R.string.add_new_issue_toolbar_action);
         inputDialogBuilder.setView(inflatedView);
-        inputDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        inputDialogBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 issueSummary[0] = summaryInput.getText().toString();
@@ -40,13 +40,13 @@ public class IssueDataInputPrompter {
                     addNewIssueToDatabase(context, issueSummary[0], issueDescription[0]);
                 } else {
                     new AlertDialog.Builder(context)
-                            .setTitle("Wrong input")
-                            .setMessage("Summary should not be empty!")
+                            .setTitle(R.string.wrong_input)
+                            .setMessage(R.string.summary_should_not_be_empty_message)
                             .show();
                 }
             }
         });
-        inputDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        inputDialogBuilder.setNegativeButton(R.string.cancel_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -65,9 +65,9 @@ public class IssueDataInputPrompter {
 
         summaryInput.setText(editableIssue.getSummary());
         descriptionInput.setText(editableIssue.getDescription());
-        inputDialogBuilder.setTitle("Modify an issue");
+        inputDialogBuilder.setTitle(R.string.modify_issue_context_menu_title);
         inputDialogBuilder.setView(inflatedView);
-        inputDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        inputDialogBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 issueSummary[0] = summaryInput.getText().toString();
@@ -79,13 +79,13 @@ public class IssueDataInputPrompter {
                     updateIssueData(context, editableIssue);
                 } else {
                     new AlertDialog.Builder(context)
-                            .setTitle("Wrong input")
-                            .setMessage("Summary should not be empty!")
+                            .setTitle(R.string.wrong_input)
+                            .setMessage(R.string.summary_should_not_be_empty_message)
                             .show();
                 }
             }
         });
-        inputDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        inputDialogBuilder.setNegativeButton(R.string.cancel_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -95,15 +95,15 @@ public class IssueDataInputPrompter {
     }
 
     public static void removeProvidedIssue(final Context context, final Issue issueToRemove, final ListViewAdapter adapter) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Are you sure?");
+        AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(R.string.confirmation_message);
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
