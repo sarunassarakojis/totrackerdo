@@ -18,16 +18,19 @@ import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivi
  */
 public class DashboardActivity extends AppCompatActivity {
 
+    private IssueStatisticsFragment issueStatisticsFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         if (findViewById(R.id.fragment_container) != null) {
+            issueStatisticsFragment = new IssueStatisticsFragment();
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment_container, new IssueStatisticsFragment())
+                    .add(R.id.fragment_container, issueStatisticsFragment)
                     .commit();
         }
 
@@ -48,7 +51,7 @@ public class DashboardActivity extends AppCompatActivity {
                 IssueDataInputPrompter.createNewIssueFromUserInputData(this);
                 return true;
             case R.id.menu_refresh:
-
+                refreshFragment();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -56,5 +59,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void viewIssues(View view) {
         startActivity(new Intent(this, ViewIssuesActivity.class));
+    }
+
+    private void refreshFragment() {
+        issueStatisticsFragment.fetchLatestIssueStatisticsData();
     }
 }

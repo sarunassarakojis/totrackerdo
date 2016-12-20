@@ -51,4 +51,12 @@ public class IssueStatisticsFragment extends Fragment {
             database.close();
         }
     }
+
+    public void fetchLatestIssueStatisticsData() {
+        getFragmentManager()
+                .beginTransaction()
+                .detach(this)
+                .attach(this)
+                .commit();
+    }
 }
