@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sarunassarakojis.totrackerdo.R;
+import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ListViewAdapter;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.TODOIssue;
@@ -93,7 +94,7 @@ public class IssueDataInputPrompter {
         inputDialogBuilder.show();
     }
 
-    public static void removeProvidedIssue(final Context context, final Issue issueToRemove) {
+    public static void removeProvidedIssue(final Context context, final Issue issueToRemove, final ListViewAdapter adapter) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Are you sure?");
 
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -107,6 +108,7 @@ public class IssueDataInputPrompter {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 removeIssueData(context, issueToRemove);
+                adapter.updateWithTheLatestIssueData();
             }
         });
         builder.show();

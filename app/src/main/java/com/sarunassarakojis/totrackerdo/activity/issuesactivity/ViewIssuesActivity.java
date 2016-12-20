@@ -83,8 +83,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
                 IssueDataInputPrompter.createNewIssueFromUserInputData(this);
                 return true;
             case R.id.menu_refresh:
-                issueListViewAdapter.setContainedIssues(obtainIssuesFromTheDataSource());
-                issueListViewAdapter.notifyDataSetChanged();
+                issueListViewAdapter.updateWithTheLatestIssueData();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -112,7 +111,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
     }
 
     private void removeSelectedIssue() {
-        IssueDataInputPrompter.removeProvidedIssue(this, getSelectedIssue());
+        IssueDataInputPrompter.removeProvidedIssue(this, getSelectedIssue(), issueListViewAdapter);
     }
 
     private Issue getSelectedIssue() {
