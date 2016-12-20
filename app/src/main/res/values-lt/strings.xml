@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_new_issue_toolbar_action">Pridėti naują užrašą</string>
+    <string name="home">Lenta</string>
+    <string name="issue_added_toast">Užrašas buvo pridėtas</string>
+    <string name="issue_count">Užrašų kiekis:</string>
+    <string name="issue_description_input">Įveskite užrašo aprašymą (nebūtinas)</string>
+    <string name="issue_modified_toast">Užrašas pakeistas</string>
+    <string name="issue_removed_toast">Užrašas ištrintas</string>
+    <string name="issue_summary_input">Įveskite pavadinimą čia</string>
+    <string name="issues">Užrašai</string>
+    <string name="modify_issue_context_menu_title">Redaguoti užrašą</string>
+    <string name="refresh_action">Atnaujinti</string>
+    <string name="remove_issue_context_menu_title">Pašalinti užrašą</string>
+    <string name="thanks_dialog_message">Dėkoju dėstytojams kurie padėjo sukurti šią programėlę</string>
+    <string name="thanks_menu_item_title">Ačiū</string>
+</resources>

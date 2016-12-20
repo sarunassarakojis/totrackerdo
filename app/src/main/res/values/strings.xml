@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">TOtrackerDO</string>
-    <string name="search_issues">Search Issues</string>
+    <string name="app_name" translatable="false">TOtrackerDO</string>
     <string name="home">Dashboard</string>
     <string name="issues">Issues</string>
-    <string name="reports">Reports</string>
     <string-array name="query_scope">
         <item>Everything</item>
         <item>Project</item>
