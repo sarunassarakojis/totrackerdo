@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.sarunassarakojis.totrackerdo.R;
-import com.sarunassarakojis.totrackerdo.activity.AddNewIssueInputPrompter;
+import com.sarunassarakojis.totrackerdo.activity.IssueDataInputPrompter;
 import com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.IssueStatisticsFragment;
 import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivity;
 
@@ -45,7 +45,7 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add_new_issue_toolbar_button:
-                AddNewIssueInputPrompter.createNewIssueFromUserInputData(this);
+                IssueDataInputPrompter.createNewIssueFromUserInputData(this);
                 return true;
             case R.id.menu_refresh:
 

@@ -61,6 +61,17 @@ public class IssuesTableUtilities {
         return writableDatabase.delete(IssueContract.IssueEntry.ISSUES_TABLE_NAME, whereClause, arguments);
     }
 
+    public static int updateSpecifiedIssue(SQLiteDatabase writableDatabase, Issue issueToUpdate) {
+        ContentValues contentValues = new ContentValues();
+        String whereClause = IssueContract.IssueEntry._ID + "=?";
+        String[] arguments = {String.valueOf(issueToUpdate.getUniqueIdentifier())};
+
+        contentValues.put(IssueContract.IssueEntry.ISSUE_SUMMARY, issueToUpdate.getSummary());
+        contentValues.put(IssueContract.IssueEntry.ISSUE_DESCRIPTION, issueToUpdate.getDescription());
+
+        return writableDatabase.update(IssueContract.IssueEntry.ISSUES_TABLE_NAME,contentValues, whereClause, arguments);
+    }
+
     private static Cursor getCursorPointingToAllIssues(SQLiteDatabase readableDatabase) {
         return readableDatabase.query(IssueContract.IssueEntry.ISSUES_TABLE_NAME,
                 ISSUE_COLUMNS, null, null, null, null, null);
