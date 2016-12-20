@@ -15,6 +15,7 @@
     <string name="refresh_action">Refresh</string>
     <string name="issue_added_toast">Issue was added</string>
     <string name="issue_modified_toast">Issue was modified</string>
+    <string name="issue_removed_toast">Issue was removed</string>
     <string name="modify_issue_context_menu_title">Modify issue</string>
     <string name="remove_issue_context_menu_title">Remove issue</string>
 </resources>

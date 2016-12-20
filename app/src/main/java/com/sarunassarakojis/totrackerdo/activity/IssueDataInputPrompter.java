@@ -93,6 +93,33 @@ public class IssueDataInputPrompter {
         inputDialogBuilder.show();
     }
 
+    public static void removeProvidedIssue(final Context context, final Issue issueToRemove) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Are you sure?");
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                removeIssueData(context, issueToRemove);
+            }
+        });
+        builder.show();
+    }
+
+    private static void removeIssueData(final Context context, Issue issueToRemove) {
+        SQLiteDatabase database = IssuesTableUtilities.getWritableDatabase(context);
+
+        if (IssuesTableUtilities.deleteSpecifiedIssue(database, issueToRemove) > 0) {
+            displayIssueRemovedToast(context);
+        }
+    }
+
     private static void updateIssueData(final Context context, Issue editedIssue) {
         SQLiteDatabase database = IssuesTableUtilities.getWritableDatabase(context);
 
@@ -115,5 +142,9 @@ public class IssueDataInputPrompter {
 
     private static void displayIssueEditedToast(final Context context) {
         Toast.makeText(context, R.string.issue_modified_toast, Toast.LENGTH_SHORT).show();
+    }
+
+    private static void displayIssueRemovedToast(final Context context) {
+        Toast.makeText(context, R.string.issue_removed_toast, Toast.LENGTH_SHORT).show();
     }
 }

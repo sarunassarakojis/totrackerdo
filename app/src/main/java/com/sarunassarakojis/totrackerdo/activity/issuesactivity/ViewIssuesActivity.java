@@ -48,6 +48,7 @@ public class ViewIssuesActivity extends AppCompatActivity {
                     modifySelectedIssue();
                     return true;
                 case R.id.remove_issue_context_menu_item:
+                    removeSelectedIssue();
                     return true;
             }
 
@@ -107,7 +108,14 @@ public class ViewIssuesActivity extends AppCompatActivity {
     }
 
     private void modifySelectedIssue() {
-        IssueDataInputPrompter.editProvidedIssueFromUserInputData(this,
-                issueListViewAdapter.getItem(selectedIssue));
+        IssueDataInputPrompter.editProvidedIssueFromUserInputData(this, getSelectedIssue());
+    }
+
+    private void removeSelectedIssue() {
+        IssueDataInputPrompter.removeProvidedIssue(this, getSelectedIssue());
+    }
+
+    private Issue getSelectedIssue() {
+        return issueListViewAdapter.getItem(selectedIssue);
     }
 }
