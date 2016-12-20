@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.sarunassarakojis.totrackerdo.R;
 import com.sarunassarakojis.totrackerdo.activity.IssueDataInputPrompter;
+import com.sarunassarakojis.totrackerdo.activity.dashboardactivity.DashboardActivity;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 
@@ -84,6 +85,10 @@ public class ViewIssuesActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_refresh:
                 issueListViewAdapter.updateWithTheLatestIssueData();
+                return true;
+            case R.id.thanks_menu_item:
+                DashboardActivity.ThanksAlertDialogPrompter.showThanksDialog(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

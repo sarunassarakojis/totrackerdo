@@ -1,7 +1,9 @@
 package com.sarunassarakojis.totrackerdo.activity.dashboardactivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,6 +21,17 @@ import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivi
 public class DashboardActivity extends AppCompatActivity {
 
     private IssueStatisticsFragment issueStatisticsFragment;
+
+    public static class ThanksAlertDialogPrompter {
+
+        public static void showThanksDialog(Context context) {
+            new AlertDialog.Builder(context)
+                    .setTitle(R.string.thanks_menu_item_title)
+                    .setIcon(R.drawable.ic_sentiment_very_satisfied_black_24dp)
+                    .setMessage(R.string.thanks_dialog_message)
+                    .show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +65,10 @@ public class DashboardActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_refresh:
                 refreshFragment();
+                return true;
+            case R.id.thanks_menu_item:
+                ThanksAlertDialogPrompter.showThanksDialog(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

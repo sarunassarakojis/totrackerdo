@@ -18,4 +18,6 @@
     <string name="issue_removed_toast">Issue was removed</string>
     <string name="modify_issue_context_menu_title">Modify issue</string>
     <string name="remove_issue_context_menu_title">Remove issue</string>
+    <string name="thanks_menu_item_title">Thanks</string>
+    <string name="thanks_dialog_message">Thanks for the lecturers who had helped in the development of this app</string>
 </resources>
