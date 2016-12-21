@@ -1,7 +1,10 @@
 package com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition;
 
 /**
- * Created by Sarunas on 11/30/2016
+ * An {@code enumeration} that specifies all available
+ * issue types.
+ *
+ * @author Sarunas Sarakojis
  */
 public enum IssueType {
     TODO,

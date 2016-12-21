@@ -1,7 +1,10 @@
 package com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition;
 
 /**
+ * An implementation of an {@link Issue} that represents a
+ * <em>to do</em> item.
  *
+ * @author Sarunas Sarakojis
  */
 public class TODOIssue implements Issue {
 
