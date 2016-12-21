@@ -16,14 +16,32 @@ import com.sarunassarakojis.totrackerdo.activity.dashboardactivity.fragment.Issu
 import com.sarunassarakojis.totrackerdo.activity.issuesactivity.ViewIssuesActivity;
 
 /**
+ * The <strong>launcher</strong> {@link android.app.Activity activity}.
+ * From this activity user is able to invoke all of the main functionality
+ * provided by this app, such as viewing currently existing issues, modifying
+ * them and so on.
+ *
  * @author Sarunas Sarakojis
+ * @see ViewIssuesActivity
  */
 public class DashboardActivity extends AppCompatActivity {
 
     private IssueStatisticsFragment issueStatisticsFragment;
 
+    /**
+     * Utility <code>class</code> that contains various utility methods for
+     * prompting <em>thanks</em> dialogs.
+     *
+     * @author Sarunas Sarakojis
+     */
     public static class ThanksAlertDialogPrompter {
 
+        /**
+         * Prompts the user with the <em>thanks</em> dialog for
+         * the specified {@link Context}.
+         *
+         * @param context the parent {@link Context context}
+         */
         public static void showThanksDialog(Context context) {
             new AlertDialog.Builder(context)
                     .setTitle(R.string.thanks_menu_item_title)
@@ -74,6 +92,12 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method invokes another activity that allows to view currently available
+     * {@link com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue issues}.
+     *
+     * @param view the parent {@link View view}
+     */
     public void viewIssues(View view) {
         startActivity(new Intent(this, ViewIssuesActivity.class));
     }

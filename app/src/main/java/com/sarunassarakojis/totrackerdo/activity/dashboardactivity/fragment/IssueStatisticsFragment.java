@@ -13,7 +13,15 @@ import com.sarunassarakojis.totrackerdo.R;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issueAccess.IssuesTableUtilities;
 
 /**
- * Created by Sarunas on 11/29/2016
+ * An extension of {@link Fragment} whose purpose is to
+ * display some sort of {@link com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue}
+ * statistics. Particularly, this <code>fragment</code> displays
+ * the count of currently existing issues. However, the value does not
+ * <em>refresh</em> on it's own. In order to work around it, the method
+ * {@link #fetchLatestIssueStatisticsData()} might be called.
+ *
+ * @author Sarunas Sarakojis
+ * @see #fetchLatestIssueStatisticsData()
  */
 public class IssueStatisticsFragment extends Fragment {
 
@@ -52,6 +60,16 @@ public class IssueStatisticsFragment extends Fragment {
         }
     }
 
+    /**
+     * Method invocation causes <code>this</code> {@link Fragment} to be updated.
+     * If the issue count that is being displayed is outdated, calling this method
+     * will cause it to refresh.
+     * <p><strong>NOTE:</strong> calling this method actually causes <code>this</code>
+     * {@link Fragment} to removed and added back to {@link android.support.v4.app.FragmentManager}
+     * again.
+     *
+     * @see android.support.v4.app.FragmentManager
+     */
     public void fetchLatestIssueStatisticsData() {
         getFragmentManager()
                 .beginTransaction()

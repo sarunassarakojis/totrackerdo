@@ -19,6 +19,14 @@ import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 
 import java.util.List;
 
+/**
+ * An extension of {@link AppCompatActivity} that displays currently contained issues
+ * in the database. A <code>adapter</code> that is responsible for this is the {@link ListViewAdapter}
+ * that manages the underlying {@link java.util.Collection} of {@link Issue issues}.
+ *
+ * @author Sarunas Sarakojis
+ * @see ListViewAdapter
+ */
 public class ViewIssuesActivity extends AppCompatActivity {
 
     private ListView issueListView;

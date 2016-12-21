@@ -16,10 +16,24 @@ import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.Issue;
 import com.sarunassarakojis.totrackerdo.issuemanagement.issuedefinition.TODOIssue;
 
 /**
- * Created by Sarunas on 12/1/2016
+ * Helper class that contains various {@link AlertDialog alert dialogs} that require
+ * some sort of user input. For example, if a new {@link Issue} is being created and
+ * an input from the user is required, it should be considered to use
+ * {@link #createNewIssueFromUserInputData(Context)} to create a new instance of an
+ * {@link Issue}. Also, as of successful operation, {@link Toast toasts} are displayed
+ * right after the successful operation.
+ *
+ * @author Sarunas Sarakojis
  */
 public class IssueDataInputPrompter {
 
+    /**
+     * Registers a new instance of an {@link Issue} from the user input. Since the issue must
+     * contain a summary, it is not allowed to provide an empty summary. This rule does
+     * not apply for the description of an {@link Issue}, as it is just optional.
+     *
+     * @param context the parent context
+     */
     public static void createNewIssueFromUserInputData(final Context context) {
         final String[] issueSummary = {""};
         final String[] issueDescription = {""};
@@ -55,6 +69,14 @@ public class IssueDataInputPrompter {
         inputDialogBuilder.show();
     }
 
+    /**
+     * Updates an existing instance of an {@link Issue} from the user input. Since the issue must
+     * contain a summary, it is not allowed to provide an empty summary. This rule does
+     * not apply for the description of an {@link Issue}, as it is just optional.
+     *
+     * @param context       the parent context
+     * @param editableIssue instance of an {@link Issue} that should be edited by the user
+     */
     public static void editProvidedIssueFromUserInputData(final Context context, final Issue editableIssue) {
         final String[] issueSummary = {""};
         final String[] issueDescription = {""};
@@ -94,6 +116,15 @@ public class IssueDataInputPrompter {
         inputDialogBuilder.show();
     }
 
+    /**
+     * Removes an existing instance of an {@link Issue} if the user confirms.
+     *
+     * @param context       the parent context
+     * @param issueToRemove instance of an {@link Issue} that should be removed
+     * @param adapter       since the activity should <em>refresh</em> after {@link Issue}
+     *                      has been removed, it is required to call
+     *                      {@link ListViewAdapter#updateWithTheLatestIssueData()}
+     */
     public static void removeProvidedIssue(final Context context, final Issue issueToRemove, final ListViewAdapter adapter) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(R.string.confirmation_message);
 
